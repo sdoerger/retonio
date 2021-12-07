@@ -1,5 +1,5 @@
 // MODELS
-import { Retonio } from "./models/Retonio/Retonio.class";
+import { Retonio } from "./src/models/Retonio/Retonio.class";
 
 export function retonio(id, apiCall, config = undefined) {
   // ----------
