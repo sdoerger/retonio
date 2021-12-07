@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://npmjs.com/package/retonio" target="_blank" rel="noopener noreferrer">
-    <img width="230" src="https://ik.imagekit.io/vrfrbvdn0j/sddev/Retonio.svg?updatedAt=1638779814567" alt="Retonio logo">
+    <img width="230" src="https://ik.imagekit.io/vrfrbvdn0j/sddev/Retonio.svg?updatedAt=1638883929199" alt="Retonio logo">
   </a>
 </p>
 <br/>
