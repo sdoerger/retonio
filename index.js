@@ -1,5 +1,7 @@
-// LIBS
+// VUE
 import { defineStore } from "pinia";
+
+// LIBS
 import justSafeGet from "just-safe-get";
 
 export class BaseState {
@@ -7,24 +9,7 @@ export class BaseState {
   isFinished = undefined;
   //Indicates if the request is currently loading
   isLoading = undefined;
-  //Indicates if the requesexport class BaseState {
-  //Indicates if the request has finished
-  isFinished = undefined;
-  //Indicates if the request is currently loading
-  isLoading = undefined;
   //Indicates if the request was canceled
-  error = undefined;
-  // //Axios response data
-  response = undefined;
-
-  constructor(isFinished = false, isLoading = false, error = false, response = undefined) {
-    this.isFinished = isFinished || false;
-    this.isLoading = isLoading || false;
-    this.error = error || false;
-    this.response = response || undefined;
-  }
-}
-t was canceled
   error = undefined;
   // //Axios response data
   response = undefined;
