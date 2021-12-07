@@ -1,31 +1,8 @@
 // VUE
-import { defineStore, createPinia } from "pinia";
+import { defineStore } from "pinia";
 
 // LIBS
 import justSafeGet from "just-safe-get";
-
-export class BaseState {
-  //Indicates if the request has finished
-  isFinished = undefined;
-  //Indicates if the request is currently loading
-  isLoading = undefined;
-  //Indicates if the request was canceled
-  error = undefined;
-  // //Axios response data
-  response = undefined;
-
-  constructor(
-    isFinished = false,
-    isLoading = false,
-    error = false,
-    response = undefined
-  ) {
-    this.isFinished = isFinished || false;
-    this.isLoading = isLoading || false;
-    this.error = error || false;
-    this.response = response || undefined;
-  }
-}
 
 export class Retonio {
   storeId = undefined; // Pinia ID / AlertMapper
@@ -34,6 +11,7 @@ export class Retonio {
   getterHelper = undefined; // Optional getter code
   actionHelper = undefined; // Optional action code
   errorHelper = undefined; // Optional action code
+  definePinia = undefined; // Optional action code
 
   constructor(
     storeId, // Pinia ID / AlertMapper
@@ -52,24 +30,25 @@ export class Retonio {
       if (config.getter) this.getterHelper = config.getter;
       if (config.action) this.actionHelper = config.action;
       if (config.error) this.errorHelper = config.error;
+      if (config.pinia) this.definePinia = config.pinia;
     }
   }
 
   // To executre pinia function
   pinia() {
-    createPinia();
     // Values from constructor needs to be stored here in vars, otherwise it cannot be accessed from pinia function
     const storeDepthToString = String(this.storeDepth);
     const apiCall = this.apiCall;
     const getterHelper = this.getterHelper;
     const actionHelper = this.actionHelper;
     const errorHelper = this.errorHelper;
+    const definePinia = this.definePinia;
 
     // ----------
     // PINIA
     // ----------
     // Default, to create new pinia store
-    const useDefaultStore = defineStore({
+    const useDefaultStore = definePinia({
       id: this.storeId,
 
       state: () => ({
@@ -138,7 +117,7 @@ export class Retonio {
   }
 }
 
-export function retonio(id, apiCall, config = undefined) {
+export function retonio(id, apiCall, config) {
   // ----------
   // PINIA FROM RETONIO
   // ----------
