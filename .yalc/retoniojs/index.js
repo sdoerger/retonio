@@ -1,5 +1,5 @@
 // VUE
-import { defineStore, createPinia } from "pinia";
+import { defineStore } from "pinia";
 
 // LIBS
 import justSafeGet from "just-safe-get";
@@ -57,7 +57,6 @@ export class Retonio {
 
   // To executre pinia function
   pinia() {
-    createPinia();
     // Values from constructor needs to be stored here in vars, otherwise it cannot be accessed from pinia function
     const storeDepthToString = String(this.storeDepth);
     const apiCall = this.apiCall;

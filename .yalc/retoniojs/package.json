@@ -1,6 +1,6 @@
 {
   "name": "retoniojs",
-  "version": "0.0.6",
+  "version": "0.0.5",
   "description": "A simple Vue store setup. A Wrapper for Pinia, including response states for loading.",
   "main": "index.js",
   "scripts": {
@@ -30,7 +30,7 @@
   "homepage": "https://github.com/sdoerger/retonio#readme",
   "dependencies": {
     "just-safe-get": "^4.0.1",
-    "pinia": "^2.0.6",
-    "retoniojs": "file:.yalc/retoniojs"
-  }
+    "pinia": "^2.0.6"
+  },
+  "yalcSig": "7cfa223f141b31ba4b9be1389b5eec6b"
 }
