@@ -206,7 +206,7 @@ Using setup script
 
 ## Documentation
 
-To learn more about Retonia, check [cooming soon]().
+To learn more about Retonio, check [cooming soon]().
 
 ## License
 
