@@ -52,20 +52,27 @@ app.use(createPinia())
 ### Create default a Store with Retonio
 
 As with Pinia, create preferably each store in a single file (i. e. in src/store/moudles).
-(apiAllRecepies is an imported axios function)
+(apiAllRecepies is an imported axios function).
+You need to pass Pinia via config and Id and api call as params
 
 ```js
 // src/store/modules/allRecepies.ts
 // LIBS
-import { retonio } from 'retonio';
+import { defineStore } from 'pinia';
+import { retonio } from 'retoniojs';
 
 // API
 import { apiAllRecepies } from '@/api/allRecepies.api';
-etonio
+
+const config = {
+  pinia: defineStore,
+};
+
 // ----------
-// Retonio
+// RETONIO
 // ----------
-export const useAllRecepies = retonio('AllRecepies', useAllRecepies);
+export const useAllRecepies = retonio('AllRecepies', useAllRecepies, config);
+
 ```
 
 ### Add custom getter path, getter, action, error
@@ -98,19 +105,18 @@ export function testAction(response) {
 }
 
 const config = {
-  // path: 'repsonse',
-  // getter: testGetter,
+  pinia: defineStore,
   action: testAction,
-  // error: testError,
 };
 
 // ----------
-// Retonio
+// RETONIO
 // ----------
 export const useAllRecepies = retonio('AllRecepies', useAllRecepies, config);
 
 // OR just
-// export const useAllRecepies = retonio('AllRecepies', useAllRecepies, <IConfig>{
+// export const useAllRecepies = retonio('AllRecepies', useAllRecepies, {
+//   pinia: defineStore,
 //   action: testAction,
 // });
 
