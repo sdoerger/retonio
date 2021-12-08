@@ -53,7 +53,7 @@ export class Retonio {
       if (config.getter) this.getterHelper = config.getter;
       if (config.action) this.actionHelper = config.action;
       if (config.error) this.errorHelper = config.error;
-      if (config.pinia) this.definePinia = config.pinia;
+      if (config.init) this.definePinia = config.init;
     }
   }
 

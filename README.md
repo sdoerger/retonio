@@ -5,7 +5,7 @@
 </p>
 <br/>
 <p align="center">
-  <a href="https://npmjs.com/package/retoniojs"><img src="https://badgen.net/npm/v/retoniojs" alt="npm package"></a>
+  <a href="https://npmjs.com/package/retonio"><img src="https://badgen.net/npm/v/retonio" alt="npm package"></a>
 </p>
 <br/>
 
@@ -105,7 +105,7 @@ export function testAction(response) {
 }
 
 const config = {
-  pinia: defineStore,
+  init: defineStore,
   action: testAction,
 };
 
@@ -116,7 +116,7 @@ export const useAllRecepies = retonio('AllRecepies', useAllRecepies, config);
 
 // OR just
 // export const useAllRecepies = retonio('AllRecepies', useAllRecepies, {
-//   pinia: defineStore,
+//   init: defineStore,
 //   action: testAction,
 // });
 
