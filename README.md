@@ -59,7 +59,7 @@ You need to pass Pinia via config and Id and api call as params
 // src/store/modules/allRecepies.ts
 // LIBS
 import { defineStore } from 'pinia';
-import { retonio } from 'retoniojs';
+import { retonio } from 'retonio';
 
 // API
 import { apiAllRecepies } from '@/api/allRecepies.api';

@@ -31,6 +31,6 @@
   "dependencies": {
     "just-safe-get": "^4.0.1",
     "pinia": "^2.0.6",
-    "retoniojs": "file:.yalc/retoniojs"
+    "retonio": "file:.yalc/retonio"
   }
 }

@@ -5,7 +5,7 @@
 </p>
 <br/>
 <p align="center">
-  <a href="https://npmjs.com/package/retoniojs"><img src="https://badgen.net/npm/v/retoniojs" alt="npm package"></a>
+  <a href="https://npmjs.com/package/retonio"><img src="https://badgen.net/npm/v/retonio" alt="npm package"></a>
 </p>
 <br/>
 
