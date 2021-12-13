@@ -21,20 +21,20 @@ function createDirPath(dirPath) {
 
 function createContent() {
   return `// LIBS
-  import { defineStore } from 'pinia';
-  import { retonio } from 'retonio';
-  
-  // API
-  import { /*API CALl*/ } from '@/api/';
-  
-  // ----------
-  // RETONIO
-  // ----------
-  export const use${storeName}Store = retonio({
-    id: '${storeName}',
-    api: /*API CALl*/,
-    init: defineStore,
-  });`;
+import { defineStore } from 'pinia';
+import { retonio } from 'retonio';
+
+// API
+import { /*API CALl*/ } from '@/api/';
+
+// ----------
+// RETONIO
+// ----------
+export const use${storeName}Store = retonio({
+  id: '${storeName}',
+  api: /*API CALl*/,
+  init: defineStore,
+});`;
 }
 
 function createFile(path) {
