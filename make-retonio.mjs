@@ -31,7 +31,7 @@ import { /*API CALl*/ } from '@/api/';
 // RETONIO
 // ----------
 export const use${storeName.charAt(0).toUpperCase()}${storeName.slice(1)}Store = retonio({
-  id: '${storeName}',
+  id: '${storeName.charAt(0).toUpperCase()}${storeName.slice(1)}',
   api: /*API CALl*/,
   init: defineStore,
 });`;
