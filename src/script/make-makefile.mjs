@@ -1,4 +1,4 @@
-import fs from 'fs';
+import fs from "fs";
 
 function createContent() {
   return `retonio:
@@ -7,11 +7,13 @@ function createContent() {
 
 function createFile(path) {
   // ONLY if file does not exisit
-  fs.writeFile('Makefile', createContent(), { flag: 'wx' }, function (err) {
+  fs.writeFile("Makefile", createContent(), { flag: "wx" }, function (err) {
     if (err) {
-      console.log('Error');
-      return console.log(`File ${storeName} already exists!`);
+      console.log("Error");
+      return console.log(`Makefile already exists!`);
     }
-    return console.log(`File ${storeName} was created.`);
+    return console.log(`Makefile was created.`);
   });
 }
+
+createFile();
