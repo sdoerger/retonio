@@ -34,7 +34,6 @@ function createContent() {
     id: '${storeName}',
     api: /*API CALl*/,
     init: defineStore,
-    action: testAction,
   });`;
 }
 

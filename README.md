@@ -77,7 +77,7 @@ export const useAllRecepies = retonio({
 ### Even easier with make command
 
 1. Create a Makefil with the following command in your project root dir:
-`node src/script/make-makefile.mjs` or add the content of `make-makefile` into an existing make file.
+`node node_modules/retonio/make-makefile.mjs` or add the content of `make-makefile` into an existing make file.
 
 Just once and you are done.
 
