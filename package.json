@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "make:retonio": "node src/script/make-retonio.mjs ts true",
-    "make:makefile": "node src/script/make-makefile.mjs"
+    "make:retonio": "node src/script/make-retonio.mjs ts true"
   },
   "repository": {
     "type": "git",
