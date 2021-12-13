@@ -2,7 +2,7 @@ import fs from "fs";
 
 function createContent() {
   return `retonio:
-	node winlocal/script/make-retonio.mjs ts false	$(filter-out $@,$(MAKECMDGOALS))`;
+	node winlocal/script/make-retonio.mjs js false	$(filter-out $@,$(MAKECMDGOALS))`;
 }
 
 function createFile(path) {

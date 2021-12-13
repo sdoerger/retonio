@@ -64,16 +64,35 @@ import { retonio } from 'retonio';
 // API
 import { apiAllRecepies } from '@/api/allRecepies.api';
 
-const config = {
-  pinia: defineStore,
-};
-
 // ----------
 // RETONIO
 // ----------
-export const useAllRecepies = retonio('AllRecepies', useAllRecepies, config);
-
+export const useAllRecepies = retonio({
+  id: 'AllRecepies',
+  api: useAllRecepies,
+  init: defineStore,
+});
 ```
+
+### Even easier with make command
+
+1. Create a Makefil with the following command in your project root dir:
+`node src/script/make-makefile.mjs` or add the content of `make-makefile` into an existing make file.
+
+Just once and you are done.
+
+From you terminal in you root dir type i. e.:
+`make retonio AllRecepies recepies`
+This will create `src/store/modules/recepies/AllRecepies.js` with same content of the file above.
+
+Just `make retonio AllRecepies` will create `src/store/modules/AllRecepies.js`.
+
+Alternatively, you can run `npm run retonio` or click in vscode in npm scripts at `retonio` to achive the same.
+
+If you prefer TypeScript, change in the `Makefile` js to ts at `node winlocal/script/make-retonio.mjs js false` and in the `package.json` "node src/script/make-retonio.mjs ts true".
+*There might be later a better way to configure it.*
+
+This is highly inspired by [Laravel Artisan](https://laravel.com/docs/8.x/artisan).
 
 ### Add custom getter path, getter, action, error
 In order to so, pass a config object (all items optional).
@@ -104,22 +123,15 @@ export function testAction(response) {
   return response;
 }
 
-const config = {
-  init: defineStore,
-  action: testAction,
-};
-
 // ----------
 // RETONIO
 // ----------
-export const useAllRecepies = retonio('AllRecepies', useAllRecepies, config);
-
-// OR just
-// export const useAllRecepies = retonio('AllRecepies', useAllRecepies, {
-//   init: defineStore,
-//   action: testAction,
-// });
-
+export const useAllRecepies = retonio({
+  id: 'AllRecepies',
+  api: useAllRecepies,
+  init: defineStore,
+  action: testAction,
+});
 ```
 
 ### This will create such a Pinia store
@@ -207,7 +219,6 @@ Using setup script
     return false;
   });
 </script>
-
 ```
 
 ## Documentation

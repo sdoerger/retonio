@@ -1,6 +1,3 @@
-// VUE
-import { defineStore } from "pinia";
-
 // LIBS
 import justSafeGet from "just-safe-get";
 
@@ -41,14 +38,13 @@ export class Retonio {
     apiCall, // Imported API call
     config // Config param
   ) {
-    // REQUIRED
-    this.storeId = storeId;
-    this.apiCall = apiCall;
     // Default store depth (state.response), which might be overwritten by config.
     this.storeDepth = "response";
 
     // OPTIONAL
     if (config) {
+      if (config.storeId) this.storeId = config.id;
+      if (config.apiCall) this.apiCall = config.api;
       if (config.path) this.storeDepth = config.path;
       if (config.getter) this.getterHelper = config.getter;
       if (config.action) this.actionHelper = config.action;

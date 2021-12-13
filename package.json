@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "make:retonio": "node src/script/make-retonio.mjs ts true"
+    "retonio": "node src/script/make-retonio.mjs js true"
   },
   "repository": {
     "type": "git",
