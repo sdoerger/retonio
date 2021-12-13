@@ -90,7 +90,7 @@ Just `make retonio AllRecepies` will create `src/store/modules/AllRecepies.js`.
 Alternatively, you can add to the package.json:
 ```json
 "scripts": {
-  "retonio": "node src/script/make-retonio.mjs js true"
+  "retonio": "node node node_modules/retonio/make-retonio.mjs js true"
 },
 ```
 Run `npm run retonio` or click in vscode in npm scripts at `retonio` to achive the same as with make
