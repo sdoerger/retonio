@@ -81,15 +81,21 @@ export const useAllRecepies = retonio({
 
 Just once and you are done.
 
-From you terminal in you root dir type i. e.:
+2. From you terminal in you root dir type i. e.:
 `make retonio AllRecepies recepies`
 This will create `src/store/modules/recepies/AllRecepies.js` with same content of the file above.
 
 Just `make retonio AllRecepies` will create `src/store/modules/AllRecepies.js`.
 
-Alternatively, you can run `npm run retonio` or click in vscode in npm scripts at `retonio` to achive the same.
+Alternatively, you can add to the package.json:
+```json
+"scripts": {
+  "retonio": "node src/script/make-retonio.mjs js true"
+},
+```
+Run `npm run retonio` or click in vscode in npm scripts at `retonio` to achive the same as with make
 
-If you prefer TypeScript, change in the `Makefile` js to ts at `node winlocal/script/make-retonio.mjs js false` and in the `package.json` "node src/script/make-retonio.mjs ts true".
+If you prefer TypeScript, change in the `Makefile` js to ts at `node src/script/make-retonio.mjs js false` and in the `package.json` "node src/script/make-retonio.mjs ts true".
 *There might be later a better way to configure it.*
 
 This is highly inspired by [Laravel Artisan](https://laravel.com/docs/8.x/artisan).
