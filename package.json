@@ -4,7 +4,9 @@
   "description": "A simple Vue store setup. A Wrapper for Pinia, including response states for loading.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
     "make:retonio": "node src/script/make-retonio.mjs ts true"
   },
   "repository": {
