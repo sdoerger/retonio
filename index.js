@@ -64,6 +64,10 @@ export class Retonio {
     const errorHelper = this.errorHelper;
     const defineStore = this.defineStore;
 
+    console.log('defineStore')
+    console.log(defineStore)
+    
+
     // ----------
     // PINIA
     // ----------
