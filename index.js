@@ -31,7 +31,9 @@ export class Retonio {
   getterHelper = undefined; // Optional getter code
   actionHelper = undefined; // Optional action code
   errorHelper = undefined; // Optional action code
-  defineStore; // Optional action code
+  defineStore = function() {
+    
+  }; // Optional action code
 
   constructor(
     config // Config param
