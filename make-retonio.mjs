@@ -40,7 +40,7 @@ export const use${storeName.charAt(0).toUpperCase()}${storeName.slice(1)}Store =
 function createFile(path) {
   // ONLY if file does not exisit
   fs.writeFile(
-    `${path}/${storeName}.${fileType}`,
+    `${path}/${storeName.toLowerCase()}.${fileType}`,
     createContent(),
     { flag: "wx" },
     function (err) {

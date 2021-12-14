@@ -34,8 +34,6 @@ export class Retonio {
   definePinia = undefined; // Optional action code
 
   constructor(
-    storeId, // Pinia ID / AlertMapper
-    apiCall, // Imported API call
     config // Config param
   ) {
     // Default store depth (state.response), which might be overwritten by config.
@@ -43,8 +41,8 @@ export class Retonio {
 
     // OPTIONAL
     if (config) {
-      if (config.storeId) this.storeId = config.id;
-      if (config.apiCall) this.apiCall = config.api;
+      if (config.id) this.storeId = config.id;
+      if (config.api) this.apiCall = config.api;
       if (config.path) this.storeDepth = config.path;
       if (config.getter) this.getterHelper = config.getter;
       if (config.action) this.actionHelper = config.action;
@@ -57,18 +55,23 @@ export class Retonio {
   pinia() {
     // Values from constructor needs to be stored here in vars, otherwise it cannot be accessed from pinia function
     const storeDepthToString = String(this.storeDepth);
+    const storeId = this.storeId;
     const apiCall = this.apiCall;
     const getterHelper = this.getterHelper;
     const actionHelper = this.actionHelper;
     const errorHelper = this.errorHelper;
     const definePinia = this.definePinia;
+    console.log(`storeDepthToString: ${storeDepthToString}`);
+    console.log(`storeId: ${storeId}`);
+    console.log(`apiCall: ${apiCall}`);
+    // console.log(`definePinia: ${definePinia}`);
 
     // ----------
     // PINIA
     // ----------
     // Default, to create new pinia store
     const useDefaultStore = definePinia({
-      id: this.storeId,
+      id: storeId,
 
       state: () => ({
         ...new BaseState(),
@@ -136,13 +139,11 @@ export class Retonio {
   }
 }
 
-export function retonio(id, apiCall, config) {
+export function retonio(config) {
   // ----------
   // PINIA FROM RETONIO
   // ----------
   return new Retonio(
-    id, // Pinia ID / AlertMapper
-    apiCall, // Imported API call,
     config // Optional Retonio configuration file
   ).pinia();
 }
