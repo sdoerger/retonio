@@ -31,7 +31,7 @@ export class Retonio {
   getterHelper = undefined; // Optional getter code
   actionHelper = undefined; // Optional action code
   errorHelper = undefined; // Optional action code
-  definePinia = undefined; // Optional action code
+  defineStore = undefined; // Optional action code
 
   constructor(
     config // Config param
@@ -47,7 +47,7 @@ export class Retonio {
       if (config.getter) this.getterHelper = config.getter;
       if (config.action) this.actionHelper = config.action;
       if (config.error) this.errorHelper = config.error;
-      if (config.init) this.definePinia = config.init;
+      if (config.init) this.defineStore = config.init;
     }
   }
 
@@ -60,82 +60,80 @@ export class Retonio {
     const getterHelper = this.getterHelper;
     const actionHelper = this.actionHelper;
     const errorHelper = this.errorHelper;
-    const definePinia = this.definePinia;
-    console.log(`storeDepthToString: ${storeDepthToString}`);
-    console.log(`storeId: ${storeId}`);
-    console.log(`apiCall: ${apiCall}`);
-    // console.log(`definePinia: ${definePinia}`);
+    const defineStore = this.defineStore;
 
     // ----------
     // PINIA
     // ----------
     // Default, to create new pinia store
-    const useDefaultStore = definePinia({
-      id: storeId,
+    if (defineStore) {
+      const useDefaultStore = defineStore({
+        id: storeId,
 
-      state: () => ({
-        ...new BaseState(),
-      }),
+        state: () => ({
+          ...new BaseState(),
+        }),
 
-      getters: {
-        getData(state) {
-          // A getter helper can be passed as function, to alter the data in any ways
-          if (getterHelper) {
-            return getterHelper(state.response);
-          } else {
-            // Else, assign as is from API (with storeDepthToString)
-            return justSafeGet(state, storeDepthToString);
-          }
-        },
-      },
-
-      actions: {
-        async fetchData(params = undefined) {
-          useDefaultStore().$state.isLoading = true;
-
-          try {
-            let response = await apiCall(params);
-
-            // If action helper, return response of it. Needs to
-            if (actionHelper) {
-              response = await actionHelper(params);
+        getters: {
+          getData(state) {
+            // A getter helper can be passed as function, to alter the data in any ways
+            if (getterHelper) {
+              return getterHelper(state.response);
+            } else {
+              // Else, assign as is from API (with storeDepthToString)
+              return justSafeGet(state, storeDepthToString);
             }
+          },
+        },
 
-            if (response /*.status === 200 || response.status === 201)*/) {
-              // Assign new BaseState Object with response to state
+        actions: {
+          async fetchData(params = undefined) {
+            useDefaultStore().$state.isLoading = true;
+
+            try {
+              let response = await apiCall(params);
+
+              // If action helper, return response of it. Needs to
+              if (actionHelper) {
+                response = await actionHelper(params);
+              }
+
+              if (response /*.status === 200 || response.status === 201)*/) {
+                // Assign new BaseState Object with response to state
+                useDefaultStore().$state = {
+                  ...new BaseState(),
+                  isFinished: true,
+                  response: response.data,
+                };
+              }
+            } catch (error) {
+              // handle api call error
+              console.error(
+                `ERROR from DefaultPinia at id="${useDefaultStore().$id}"`
+              );
+              // Assign new BaseState Object with error to state
               useDefaultStore().$state = {
                 ...new BaseState(),
                 isFinished: true,
-                response: response.data,
+                error: true,
               };
-            }
-          } catch (error) {
-            // handle api call error
-            console.error(
-              `ERROR from DefaultPinia at id="${useDefaultStore().$id}"`
-            );
-            // Assign new BaseState Object with error to state
-            useDefaultStore().$state = {
-              ...new BaseState(),
-              isFinished: true,
-              error: true,
-            };
 
-            // If error helper, exectute it
-            if (error && errorHelper) {
-              errorHelper(error, useDefaultStore().$id);
-            }
+              // If error helper, exectute it
+              if (error && errorHelper) {
+                errorHelper(error, useDefaultStore().$id);
+              }
 
-            // alertStore.error({
-            //   error: error,
-            //   messageType: useDefaultStore().$id,
-            // });
-          }
+              // alertStore.error({
+              //   error: error,
+              //   messageType: useDefaultStore().$id,
+              // });
+            }
+          },
         },
-      },
-    });
+      });
 
-    return useDefaultStore;
+      return useDefaultStore;
+    }
   }
 }
 

@@ -75,19 +75,21 @@ export const useAllRecepies = retonio({
 ```
 
 ### Even easier with make command
+### With make command
 
-1. Create a Makefil with the following command in your project root dir:
+1. Create a Makefil with the following command in your project root dir
 `node node_modules/retonio/make-makefile.mjs` or add the content of `make-makefile` into an existing make file.
 
 Just once and you are done.
 
-2. From you terminal in you root dir type i. e.:
+1. From you terminal in you root dir type i. e.:
 `make retonio AllRecepies recepies`
 This will create `src/store/modules/recepies/AllRecepies.js` with same content of the file above.
 
 Just `make retonio AllRecepies` will create `src/store/modules/AllRecepies.js`.
 
-Alternatively, you can add to the package.json:
+### With make npm script
+Add to the package.json:
 ```json
 "scripts": {
   "retonio": "node node node_modules/retonio/make-retonio.mjs js true"
