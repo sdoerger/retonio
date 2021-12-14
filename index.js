@@ -31,9 +31,7 @@ export class Retonio {
   getterHelper = undefined; // Optional getter code
   actionHelper = undefined; // Optional action code
   errorHelper = undefined; // Optional action code
-  defineStore = function() {
-    
-  }; // Optional action code
+  defineStore = function () {}; // Optional action code
 
   constructor(
     config // Config param
@@ -63,10 +61,6 @@ export class Retonio {
     const actionHelper = this.actionHelper;
     const errorHelper = this.errorHelper;
     const defineStore = this.defineStore;
-
-    console.log('defineStore')
-    console.log(defineStore)
-    
 
     // ----------
     // PINIA
