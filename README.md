@@ -81,7 +81,7 @@ export const useAllRecepies = retonio({
 
 ```c
 retonio:
-	node node_modules/retonio/nodemake-retonio.mjs js false	$(filter-out $@,$(MAKECMDGOALS))
+	node node_modules/retonio/make-retonio.mjs ts false	$(filter-out $@,$(MAKECMDGOALS))
 ```
 
 Just once and you are done.
@@ -96,12 +96,12 @@ Just `make retonio AllRecepies` will create `src/store/modules/AllRecepies.js`.
 Add to the package.json:
 ```json
 "scripts": {
-  "retonio": "node node node_modules/retonio/make-retonio.mjs js true"
+  "retonio": "node node_modules/retonio/make-retonio.mjs js true"
 },
 ```
 Run `npm run retonio` or click in vscode in npm scripts at `retonio` to achive the same as with make
 
-If you prefer TypeScript, change in the `Makefile` js to ts at `node src/script/make-retonio.mjs js false` and in the `package.json` "node src/script/make-retonio.mjs ts true".
+If you prefer TypeScript, change in the `Makefile` js to ts at `node node_modules/retonio/make-retonio.mjs ts false` and in the `package.json` "node src/script/make-retonio.mjs ts true".
 *There might be later a better way to configure it.*
 
 This is highly inspired by [Laravel Artisan](https://laravel.com/docs/8.x/artisan).
