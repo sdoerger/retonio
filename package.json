@@ -6,9 +6,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "bin": {
-    "retonio": "node src/script/make-retonio.mjs js true"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sdoerger/retonio.git"
