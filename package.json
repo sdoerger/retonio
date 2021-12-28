@@ -30,7 +30,9 @@
   "homepage": "https://github.com/sdoerger/retonio#readme",
   "dependencies": {
     "just-safe-get": "^4.0.1",
-    "pinia": "^2.0.6",
     "prompt-sync": "^4.2.0"
+  },
+  "peerDependencies": {
+    "pinia": "^2.0.6"
   }
 }
