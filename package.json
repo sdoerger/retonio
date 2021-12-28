@@ -1,6 +1,6 @@
 {
   "name": "retonio",
-  "version": "0.0.32",
+  "version": "0.0.33",
   "description": "A simple Vue store setup. A Wrapper for Pinia, including response states for loading.",
   "main": "index.js",
   "scripts": {
