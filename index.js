@@ -109,7 +109,7 @@ export class Retonio {
             } catch (error) {
               // handle api call error
               console.error(
-                `ERROR from DefaultPinia at id="${useDefaultStore().$id}"`
+                `ERROR from Retonio at id="${useDefaultStore().$id}"`
               );
               // Assign new BaseState Object with error to state
               useDefaultStore().$state = {
