@@ -11,6 +11,7 @@
 
 # Retonio
 A simple store setup for Vue.
+(If you use fetch, you need to return data as response. Works directly with axios).
 Probably the code, you would have written with Pinia, anyway.
 
 - 📦 Wrapps a Pinia Store in one line
